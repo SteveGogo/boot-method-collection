@@ -1,10 +1,10 @@
-package com.example.ratelimitguava;
+package com.example.redissionlockdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RateLimitGuavaApplicationTests {
+class RedissionLockDemoApplicationTests {
 
     @Test
     void contextLoads() {

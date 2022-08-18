@@ -1,13 +1,13 @@
-package com.example.ratelimitguava;
+package com.example.guavademo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RateLimitGuavaApplication {
+public class GuavaDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RateLimitGuavaApplication.class, args);
+        SpringApplication.run(GuavaDemoApplication.class, args);
     }
 
 }

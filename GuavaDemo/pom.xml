@@ -8,26 +8,20 @@
         <version>2.7.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.mylearn</groupId>
-    <artifactId>SprBootFunction</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>GuavaDemo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>SprBootFunction</name>
-    <description>开发用到的好的方法轮子，不是web项目</description>
+    <name>GuavaDemo</name>
+    <description>GuavaDemo</description>
     <properties>
         <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -39,20 +33,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!--guava -->
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.8.1</version>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-batch -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-batch</artifactId>
-            <version>2.7.2</version>
-        </dependency>
-
-
 
     </dependencies>
 
