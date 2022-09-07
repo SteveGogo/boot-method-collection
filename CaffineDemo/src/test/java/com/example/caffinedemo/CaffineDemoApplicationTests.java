@@ -2,7 +2,9 @@ package com.example.caffinedemo;
 
 import com.example.caffinedemo.dto.AddressDTO;
 import com.example.caffinedemo.service.AddressService;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.CacheManager;
