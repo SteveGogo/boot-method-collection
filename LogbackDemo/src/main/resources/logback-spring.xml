@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <!--
+    TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+    -->
+    <contextName>LOGBACK-DEMO-APP</contextName>
+
+    <property name="LOG_HOME" value="logs"/>
+    <property name="PROJECT_NAME" value="myapp"/>
+
+    <property name="pattern-console"
+              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %highlight([%-5level] %logger{50} - %msg%n)"/>
+    <property name="pattern-file"
+              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] %logger{50} - %msg%n"/>
+
+
+    <!--输出到控制台-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>${pattern-console}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!--输出到文件-->
+    <appender name="SYSTEM_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>${pattern-file}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/${PROJECT_NAME}.error.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <MaxHistory>30</MaxHistory>
+            <!--日志文件最大的大小-->
+            <MaxFileSize>100MB</MaxFileSize>
+        </rollingPolicy>
+
+        <!-- LevelFilter过滤器(输出指定日志级别)，只打印ERROR级别的日志 -->
+        <!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+        <!--            <level>warn</level>-->
+        <!--            <onMatch>ACCEPT</onMatch>-->
+        <!--            <onMismatch>DENY</onMismatch>-->
+        <!--        </filter>-->
+
+        <!--ThresholdFilter 输出此级别和更高的级别日志-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+
+
+    </appender>
+
+    <root level="TRACE">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SYSTEM_FILE"/>
+    </root>
+
+
+</configuration>
