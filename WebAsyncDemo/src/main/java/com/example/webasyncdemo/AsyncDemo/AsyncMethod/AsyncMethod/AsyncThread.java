@@ -1,4 +1,4 @@
-package com.example.webasyncdemo.AsyncMethod;
+package com.example.webasyncdemo.AsyncDemo.AsyncMethod.AsyncMethod;
 
 import lombok.AllArgsConstructor;
 
