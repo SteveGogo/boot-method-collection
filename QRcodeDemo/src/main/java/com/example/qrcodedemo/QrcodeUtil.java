@@ -32,7 +32,6 @@ public class QrcodeUtil {
 
     private static final int WIDTH = 300;
     private static final int HEIGHT = 300;
-    private static final String TYPE = ".png";
     //FRONT_COLOR：二维码前景色，0x000000 表示黑色
     private static final int FRONT_COLOR = 0x000000;
     //BACKGROUND_COLOR：二维码背景色，0xFFFFFF 表示白色
