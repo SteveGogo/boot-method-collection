@@ -19,6 +19,5 @@ public class MyUser {
 
     private Integer status;
 
-
     List<Role> roles;
 }

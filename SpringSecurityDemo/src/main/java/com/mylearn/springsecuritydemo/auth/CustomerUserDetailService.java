@@ -48,7 +48,6 @@ public class CustomerUserDetailService implements UserDetailsService {
         }
         customerUserDetails.setAuthorities(authorities);
         log.info("authorities:{}", JSON.toJSONString(authorities));
-
         //这里返回的是我们自己定义的UserDetail
         return customerUserDetails;
     }

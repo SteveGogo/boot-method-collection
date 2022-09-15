@@ -1,8 +1,9 @@
-package com.mylearn.springsecuritydemo.filter;
+package com.mylearn.springsecuritydemo.Handler;
 
 
+import com.mylearn.springsecuritydemo.common.ResponseUtil;
+import com.mylearn.springsecuritydemo.common.ResultUtil;
 import com.mylearn.springsecuritydemo.constant.ErrorCodeConstants;
-import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;

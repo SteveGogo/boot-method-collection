@@ -1,5 +1,6 @@
-package com.mylearn.springsecuritydemo.filter;
+package com.mylearn.springsecuritydemo.Handler;
 
+import com.mylearn.springsecuritydemo.common.ResultUtil;
 import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;

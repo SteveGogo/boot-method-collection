@@ -1,10 +1,11 @@
-package com.mylearn.springsecuritydemo.filter;
+package com.mylearn.springsecuritydemo.Handler;
 
 import com.mylearn.springsecuritydemo.auth.CustomerUserDetails;
+import com.mylearn.springsecuritydemo.common.ResponseUtil;
+import com.mylearn.springsecuritydemo.common.ResultUtil;
 import com.mylearn.springsecuritydemo.constant.UserConstants;
 import com.mylearn.springsecuritydemo.util.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
