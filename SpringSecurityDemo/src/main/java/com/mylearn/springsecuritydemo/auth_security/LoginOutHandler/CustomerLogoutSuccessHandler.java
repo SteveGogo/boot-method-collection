@@ -1,7 +1,8 @@
-package com.mylearn.springsecuritydemo.Handler;
+package com.mylearn.springsecuritydemo.auth_security.LoginOutHandler;
 
-import com.mylearn.springsecuritydemo.common.ResultUtil;
-import org.apache.tomcat.util.http.ResponseUtil;
+import com.alibaba.fastjson2.JSON;
+import com.mylearn.springsecuritydemo.common.JsonResult;
+import com.mylearn.springsecuritydemo.common.ResultTool;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,9 @@ import java.io.IOException;
 public class CustomerLogoutSuccessHandler implements LogoutSuccessHandler {
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        ResponseUtil.out(ResultUtil.success("Logout Success!"));
+        //ResponseUtil.out(ResultUtil.success("Logout Success!"));
+        JsonResult result = ResultTool.success();
+        response.setContentType("text/json;charset=utf-8");
+        response.getWriter().write(JSON.toJSONString(result));
     }
 }

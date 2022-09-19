@@ -19,6 +19,9 @@ import java.util.List;
  */
 @Service
 public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, SysPermission> implements ISysPermissionService {
+@Resource
+private SysPermissionMapper permissionMapper;
+
 
     @Resource
     private SysPermissionMapper sysPermissionMapper;
@@ -27,5 +30,11 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
     @Override
     public List<SysPermission> selectListByUser(Integer userId) {
         return sysPermissionMapper.selectListByUser(userId);
+    }
+
+
+    @Override
+    public List<SysPermission> selectListByPath(String requestUrl) {
+        return permissionMapper.selectListByPath(requestUrl);
     }
 }

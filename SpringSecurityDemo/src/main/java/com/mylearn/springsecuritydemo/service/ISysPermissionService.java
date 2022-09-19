@@ -16,4 +16,5 @@ import java.util.List;
 public interface ISysPermissionService extends IService<SysPermission> {
     List<SysPermission> selectListByUser(Integer userId);
 
+    List<SysPermission> selectListByPath(String requestUrl);
 }

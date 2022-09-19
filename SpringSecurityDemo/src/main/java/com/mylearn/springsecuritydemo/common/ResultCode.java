@@ -9,10 +9,10 @@ package com.mylearn.springsecuritydemo.common;
  */
 public enum ResultCode {
     /* 成功 */
-    SUCCESS(200, "成功"),
+    SUCCESS(200, "请求成功"),
 
     /* 默认失败 */
-    COMMON_FAIL(-1, "失败"),
+    COMMON_FAIL(-1, "请求失败"),
 
     /* 参数错误：1000～1999 */
     PARAM_NOT_VALID(1001, "参数无效"),

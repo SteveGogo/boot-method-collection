@@ -1,4 +1,4 @@
-//package com.mylearn.springsecuritydemo.token;
+package com.mylearn.springsecuritydemo.auth_security.token;//package com.mylearn.springsecuritydemo.token;
 //
 //
 //import com.google.common.collect.Maps;

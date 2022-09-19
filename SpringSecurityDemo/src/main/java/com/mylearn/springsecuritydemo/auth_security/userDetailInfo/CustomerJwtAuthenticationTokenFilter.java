@@ -1,0 +1,90 @@
+//package com.mylearn.springsecuritydemo.auth;
+//
+//import cn.hutool.jwt.Claims;
+//import com.mylearn.springsecuritydemo.constant.SecurityConstants;
+//import com.mylearn.springsecuritydemo.service.UserSessionService;
+//import com.mylearn.springsecuritydemo.token.UserTokenManager;
+//import com.mylearn.springsecuritydemo.util.JwtTokenUtil;
+//import lombok.extern.slf4j.Slf4j;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+//import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+//import org.springframework.stereotype.Component;
+//import org.springframework.web.filter.OncePerRequestFilter;
+//
+//import javax.servlet.FilterChain;
+//import javax.servlet.ServletException;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//import java.io.IOException;
+//
+///**
+// * 过滤器,在请求过来的时候,解析请求头中的token,再解析token得到用户信息,再存到SecurityContextHolder中
+// */
+//@Component
+//@Slf4j
+//public class CustomerJwtAuthenticationTokenFilter extends OncePerRequestFilter {
+//
+//    @Autowired
+//    CustomerUserDetailService customerUserDetailService;
+//    @Autowired
+//    UserSessionService userSessionService;
+//    @Autowired
+//    UserTokenManager userTokenManager;
+//
+//    @Override
+//    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+//
+//        //请求头为 accessToken
+//        //请求体为 Bearer token
+//        String authHeader = request.getHeader(SecurityConstants.HEADER);
+//        if (authHeader != null && authHeader.startsWith(SecurityConstants.TOKEN_SPLIT)) {
+//            final String authToken = authHeader.substring(SecurityConstants.TOKEN_SPLIT.length());
+//            String username;
+//            Claims claims;
+//            try {
+//                claims = JwtTokenUtil.parseToken(authToken);
+//                username = claims.getSubject();
+//            } catch (ExpiredJwtException e) {
+//                //token过期
+//                claims = e.getClaims();
+//                username = claims.getSubject();
+//                CustomerUserDetails userDetails = userSessionService.getSessionByUsername(username);
+//                if (userDetails != null){
+//                    //session未过期，比对时间戳是否一致，是则重新颁发token
+//                    if (isSameTimestampToken(username,e.getClaims())){
+//                        userTokenManager.awardAccessToken(userDetails,true);
+//                    }
+//                }
+//            }
+//            //避免每次请求都请求数据库查询用户信息，从缓存中查询
+//            CustomerUserDetails userDetails = userSessionService.getSessionByUsername(username);
+//            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+////                UserDetails userDetails = customerUserDetailService.loadUserByUsername(username);
+//                if (userDetails != null) {
+//                    if(isSameTimestampToken(username,claims)){
+//                        //必须token解析的时间戳和session保存的一致
+//                        UsernamePasswordAuthenticationToken authentication =
+//                                new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+//                        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+//                        SecurityContextHolder.getContext().setAuthentication(authentication);
+//                    }
+//                }
+//            }
+//        }
+//        chain.doFilter(request, response);
+//    }
+//
+//    /**
+//     * 判断是否同一个时间戳
+//     * @param username
+//     * @param claims
+//     * @return
+//     */
+//    private boolean isSameTimestampToken(String username, Claims claims){
+//        Long timestamp = userSessionService.getTokenTimestamp(username);
+//        Long jwtTimestamp = (Long) claims.get(SecurityConstants.TIME_STAMP);
+//        return timestamp.equals(jwtTimestamp);
+//    }
+//}
