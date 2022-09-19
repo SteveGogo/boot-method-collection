@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * https://blog.csdn.net/zzzgd_666/article/details/96444829
+ * https://blog.csdn.net/I_am_Hutengfei/article/details/100561564#t18
  * 五个handler一个filter两个User
  * 5个handler，分别是
  * 实现AuthenticationEntryPoint接口,当匿名请求需要登录的接口时,拦截处理
