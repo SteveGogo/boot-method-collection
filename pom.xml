@@ -41,6 +41,7 @@
         <module>WebAsyncDemo</module>
         <module>WebAsyncDemo</module>
         <module>WebSocket2</module>
+        <module>SpringSecurityMyImpl</module>
     </modules>
 
     <properties>

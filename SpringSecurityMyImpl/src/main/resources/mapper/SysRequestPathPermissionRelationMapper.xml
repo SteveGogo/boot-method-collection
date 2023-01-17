@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.springsecuritymyimpl.mapper.SysRequestPathPermissionRelationMapper">
+
+    <resultMap id="BaseResultMap" type="com.learn.springsecuritymyimpl.entity.SysRequestPathPermissionRelation">
+            <result property="id" column="id" jdbcType="INTEGER"/>
+            <result property="urlId" column="url_id" jdbcType="INTEGER"/>
+            <result property="permissionId" column="permission_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,url_id,permission_id
+    </sql>
+</mapper>
