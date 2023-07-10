@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static com.alibaba.fastjson2.util.TypeUtils.compare;
 
+/**
+ * 田忌赛马
+ */
 public class Lesson7 {
 
     // 设置齐王的马跑完所需时间
